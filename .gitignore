@@ -40,4 +40,5 @@ terraform.rc
 .environment
 .env
 
-/node_modules
+# Ignorar diretório node_modules
+node_modules/

@@ -1,0 +1,25 @@
+.App {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  input[type="file"] {
+    margin: 20px 0;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  p {
+    margin-top: 20px;
+    font-size: 18px;
+    color: green;
+  }
