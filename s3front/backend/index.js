@@ -1,6 +1,7 @@
 const express = require('express');
 const AWS = require('aws-sdk');
 const cors = require('cors');
+const winston = require('winston');
 const app = express();
 const port = 3001;
 
@@ -14,6 +15,19 @@ AWS.config.update({
 
 const s3 = new AWS.S3();
 
+// Configuração do logger
+const logger = winston.createLogger({
+  level: 'info',
+  format: winston.format.combine(
+    winston.format.timestamp(),
+    winston.format.json()
+  ),
+  transports: [
+    new winston.transports.Console(),
+    new winston.transports.File({ filename: 'app.log' })
+  ]
+});
+
 app.get('/generate-presigned-url', (req, res) => {
   const params = {
     Bucket: process.env.S3_BUCKET_NAME,
@@ -24,6 +38,7 @@ app.get('/generate-presigned-url', (req, res) => {
 
   s3.getSignedUrl('putObject', params, (err, url) => {
     if (err) {
+      logger.error('Erro ao gerar URL assinada', { error: err });
       return res.status(500).send(err);
     }
     res.send({ url });
@@ -31,5 +46,5 @@ app.get('/generate-presigned-url', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Servidor rodando na porta ${port}`);
+  logger.info(`Servidor rodando na porta ${port}`);
 });

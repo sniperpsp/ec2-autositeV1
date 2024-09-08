@@ -295,7 +295,11 @@ Certifique-se de que o bucket S3 tem uma política que permite uploads de arquiv
 4. **Verifique o Registro DNS**:
    - Verifique se o registro DNS foi criado no Route 53.
 
-## Usar o Docker
+##rondaod o front
+
+npm install winston
+
+se precisar entre no direotiro do backend e frontend e execute npm install
 
 Navegue até a pasta do projeto:
 
