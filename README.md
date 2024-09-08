@@ -283,7 +283,7 @@ Certifique-se de que o bucket S3 tem uma política que permite uploads de arquiv
 ## Teste
 
 1. **Acesse o Formulário de Upload**:
-   - Abra o navegador e vá para `http://localhost:3000`.
+   - Abra o navegador e vá para `http://localhost:3001`.
    - Selecione um arquivo `.zip` e clique no botão "Upload".
 
 2. **Verifique o Bucket S3**:
@@ -295,9 +295,14 @@ Certifique-se de que o bucket S3 tem uma política que permite uploads de arquiv
 4. **Verifique o Registro DNS**:
    - Verifique se o registro DNS foi criado no Route 53.
 
-## Contribuição
+## Usar o docker 
 
-Sinta-se à vontade para contribuir com melhorias para este projeto. Abra uma issue ou envie um pull request.
+Navegue até a pasta do projeto:
+
+   cd s3front
+
+Construa e inicie os contêineres:
+   docker-compose up --build
 
 ## Licença
 
