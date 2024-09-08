@@ -1,0 +1,41 @@
+instalar s3f3
+sudo yum install s3fs-fuse -y
+
+echo "ACCESS_KEY_ID:SECRET_ACCESS_KEY" > /home/.passwd-s3fs
+
+nano /etc/fstab
+s3fs#your-bucket-name /mnt/s3bucket fuse _netdev,passwd_file=/home/.passwd-s3fs 0 0
+
+
+intalar apache no linux 
+sudo yum install httpd -y
+sudo systemctl status httpd
+
+criar a pasta do site em : 
+/var/www/html/variavel/public_html
+
+sudo unzip /mnt/s3bucket/sites/variavel.zip -d /var/www/html/variavel/public_html
+
+criar arquivo de configuração em 
+/etc/httpd/conf.d/variavel.com.conf com os dados:
+
+<VirtualHost *:80>
+    ServerAdmin webmaster@variavel.trustcompras.com.br
+    ServerName variavel.trustcompras.com.br
+    ServerAlias www.variavel.trustcompras.com.br
+    DocumentRoot /var/www/html/variavel/public_html
+    ErrorLog /var/log/httpd/variavel.com-error.log
+    CustomLog /var/log/httpd/variavel.com-access.log combined
+
+    <Directory /var/www/html/variavel/public_html>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+</VirtualHost>
+
+reiniciar apache:
+sudo systemctl restart httpd
+
+
+fazer tambem a criação do dns no route53 via aws cli com o nome do site sendo a variavel.
