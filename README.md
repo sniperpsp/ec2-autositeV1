@@ -295,31 +295,4 @@ Certifique-se de que o bucket S3 tem uma política que permite uploads de arquiv
 4. **Verifique o Registro DNS**:
    - Verifique se o registro DNS foi criado no Route 53.
 
-##rondaod o front
-
-npm install winston
-
-se precisar entre no direotiro do backend e frontend e execute npm install
-
-Navegue até a pasta do projeto:
-
- cd s3front
-
-## Script para Iniciar Backend e Frontend
-
-de permissão ao shell iniciar_site.sh e ajuste caso necessário.
-
-Torne o script executável:
-
-chmod +x start_servers.sh
-
-Execute o script:
-
-./start_servers.sh
-
-## Licença
-
 Este projeto está licenciado sob a licença MIT.
-
-
-
