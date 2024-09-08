@@ -1,6 +1,6 @@
 # Projeto de Upload para S3 e Configuração de Lambda
 
-Este projeto consiste em um servidor Node.js que permite aos usuários fazer upload de arquivos `.zip` para um bucket S3. Além disso, há uma função Lambda configurada para processar esses arquivos, descompactá-los em uma instância EC2, configurar um servidor web Apache e criar um registro DNS no Route 53.
+Este projeto  permite aos usuários fazer upload de arquivos `.zip` para um bucket S3. Além disso, há uma função Lambda configurada para processar esses arquivos, descompactá-los em uma instância EC2, configurar um servidor web Apache e criar um registro DNS no Route 53.
 
 ## Funcionalidades
 
@@ -117,7 +117,7 @@ Certifique-se de que o bucket S3 tem uma política que permite uploads de arquiv
    }
 
    resource "aws_s3_bucket_notification" "bucket_notification" {
-     bucket = "bucket-teste124"
+     bucket = "seu-bucket"
 
      lambda_function {
        lambda_function_arn = aws_lambda_function.test_lambda.arn

@@ -19,7 +19,7 @@ variable "tag_servico" {
 variable "ami" {
   description = "Id da AMI que será usada no ec2"
   type = string
-  default = "ami-03fc6344a8230fbb6"
+  default = "sua-ami caso tenha"
   
 }
 
