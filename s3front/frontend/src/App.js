@@ -9,7 +9,7 @@ function App() {
 
   const handleFileChange = (event) => {
     const selectedFile = event.target.files[0];
-    if (selectedFile && selectedFile.type === 'application/zip') {
+    if (selectedFile && selectedFile.name.toLowerCase().endsWith('.zip')) {
       setFile(selectedFile);
       setMessage('');
     } else {
